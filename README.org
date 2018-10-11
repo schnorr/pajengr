@@ -1,0 +1,26 @@
+#+STARTUP: overview indent
+
+* Preliminaries
+
+Refer to the [[https://github.com/schnorr/pajeng][PajeNG dependencies]] before proceeding with the =pajengr= R
+package installation.
+
+* pajeng package
+
+Then, you need =devtools= package.
+
+#+begin_src R :results output :session :exports both
+install.packages("devtools");
+#+end_src
+
+Finally, install =pajengr= like this:
+
+#+begin_src R :results output :session :exports both
+library(devtools);
+install_github("schnorr/pajeng");
+#+end_src
+
+* Contact
+
+- [[http://www.inf.ufrgs.br/~schnorr][Lucas Mello Schnorr (http://www.inf.ufrgs.br/~schnorr)]]
+
