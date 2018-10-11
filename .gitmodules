@@ -1,0 +1,3 @@
+[submodule "pajeng"]
+	path = pajeng
+	url = https://github.com/schnorr/pajeng.git
