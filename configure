@@ -1,0 +1,12 @@
+echo "configure is being executed by Lucas"
+BUILD_DIR=src/pajeng/build
+mkdir -p $BUILD_DIR
+cd $BUILD_DIR
+cd build
+cmake -DSTATIC_LINKING=ON \
+      -DPAJE_DOC=OFF \
+      -DPAJE_TOOLS=OFF \
+      -DCMAKE_INSTALL_PREFIX=../install/ \
+      ..
+make
+make install
