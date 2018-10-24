@@ -1,0 +1,2 @@
+PKG_CPPFLAGS = -Ipajeng/install/include/
+PKG_LIBS = libpaje.a
