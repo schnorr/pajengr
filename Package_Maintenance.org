@@ -1,0 +1,90 @@
+#+TITLE: Maintenance ORG file for pajengr package
+#+AUTHOR: Lucas Mello Schnorr
+#+STARTUP: overview indent
+#+TAGS: noexport(n) deprecated(d)
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+
+The package has been created with Rcpp's version of =package.skeleton=,
+by running the following code. This is no longer necessary because the
+package has already been created and modified. The contents of the
+pajengr directory created by the =Rcpp.package.skeleton= have been
+copied to the root directory of this repository.
+
+#+begin_src R :results output :session :exports both
+library(Rcpp);
+Rcpp.package.skeleton("pajengr");
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Creating directories ...
+Creating DESCRIPTION ...
+Creating NAMESPACE ...
+Creating Read-and-delete-me ...
+Saving functions and data ...
+Making help files ...
+Done.
+Further steps are described in './pajengr/Read-and-delete-me'.
+
+Adding Rcpp settings
+ >> added Imports: Rcpp
+ >> added LinkingTo: Rcpp
+ >> added useDynLib directive to NAMESPACE
+ >> added importFrom(Rcpp, evalCpp) directive to NAMESPACE
+ >> added example src file using Rcpp attributes
+ >> added Rd file for rcpp_hello_world
+ >> compiled Rcpp attributes
+#+end_example
+
+Every time some new function is exported, we need to recompile the
+attributes in the following way, so our R API gets updated.
+
+#+begin_src R :results output :session :exports both
+library(Rcpp);
+compileAttributes(".");
+#+end_src
+
+#+RESULTS:
+
+The package can be checked and installed the following way (for
+development purposes only). Please note that the standard installation
+procedure [[./README.org][has already been described in the README file]]. Note that the
+following commands should be executed considering the existence of a
+=pajengr= directory with the contents of this repository. If you are
+within the aforementioned directory, replace pajengr by the dot.
+
+#+begin_src shell :results output
+#R CMD check .
+R CMD INSTALL .
+#+end_src
+
+#+RESULTS:
+: g++  -I"/usr/share/R/include" -DNDEBUG  -I"/home/schnorr/R/x86_64-pc-linux-gnu-library/3.5/Rcpp/include"    -fpic  -g -O2 -fdebug-prefix-map=/build/r-base-udh3fS/r-base-3.5.1=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c RcppExports.cpp -o RcppExports.o
+: g++  -I"/usr/share/R/include" -DNDEBUG  -I"/home/schnorr/R/x86_64-pc-linux-gnu-library/3.5/Rcpp/include"    -fpic  -g -O2 -fdebug-prefix-map=/build/r-base-udh3fS/r-base-3.5.1=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c rcpp_hello_world.cpp -o rcpp_hello_world.o
+: g++ -shared -L/usr/lib/R/lib -Wl,-z,relro -o pajengr.so RcppExports.o rcpp_hello_world.o -L/usr/lib/R/lib -lR
+
+Contents of the REad-and-delete-me file:
+
+#+BEGIN_EXAMPLE
+- Edit the help file skeletons in 'man', possibly combining help files for multiple functions.
+- Edit the exports in 'NAMESPACE', and add necessary imports.
+- Put any C/C++/Fortran code in 'src'.
+- If you have compiled code, add a useDynLib() directive to 'NAMESPACE'.
+- Run R CMD build to build the package tarball.
+- Run R CMD check to check the package tarball.
+#+END_EXAMPLE
+
+And then, test to verify if the installation is working.
+
+#+begin_src R :results output :session :exports both
+library(pajengr)
+rcpp_hello_world()
+#+end_src
+
+#+RESULTS:
+: [[1]]
+: [1] "foo" "bar"
+: 
+: [[2]]
+: [1] 0 1

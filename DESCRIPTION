@@ -1,0 +1,14 @@
+Package: pajengr
+Type: Package
+Title: An R Package to encapsulate the PajeNG framework
+Version: 1.0
+Date: 2018-10-24
+Author: Lucas M. Schnorr
+Maintainer: Lucas M. Schnorr <schnorr@inf.ufrgs.br>
+Description: The pajengr package contains a set of
+   data-processing functions that encapsulate the
+   pajeng simulator and the pj_dump functionality
+   to get data frames directly from paje trace files.
+License: GPL3
+Imports: Rcpp (>= 0.12.19)
+LinkingTo: Rcpp
