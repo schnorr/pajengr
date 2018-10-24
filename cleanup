@@ -1,3 +1,2 @@
-echo "cleanup is being executed by Lucas"
 cd src/pajeng/
 rm -rf build
