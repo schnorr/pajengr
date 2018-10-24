@@ -5,6 +5,16 @@
 
 using namespace Rcpp;
 
+// pajeng_dump
+List pajeng_dump();
+RcppExport SEXP _pajengr_pajeng_dump() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(pajeng_dump());
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpp_hello_world
 List rcpp_hello_world();
 RcppExport SEXP _pajengr_rcpp_hello_world() {
@@ -17,6 +27,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_pajengr_pajeng_dump", (DL_FUNC) &_pajengr_pajeng_dump, 0},
     {"_pajengr_rcpp_hello_world", (DL_FUNC) &_pajengr_rcpp_hello_world, 0},
     {NULL, NULL, 0}
 };

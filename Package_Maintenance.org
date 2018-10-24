@@ -60,9 +60,6 @@ R CMD INSTALL .
 #+end_src
 
 #+RESULTS:
-: g++  -I"/usr/share/R/include" -DNDEBUG  -I"/home/schnorr/R/x86_64-pc-linux-gnu-library/3.5/Rcpp/include"    -fpic  -g -O2 -fdebug-prefix-map=/build/r-base-udh3fS/r-base-3.5.1=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c RcppExports.cpp -o RcppExports.o
-: g++  -I"/usr/share/R/include" -DNDEBUG  -I"/home/schnorr/R/x86_64-pc-linux-gnu-library/3.5/Rcpp/include"    -fpic  -g -O2 -fdebug-prefix-map=/build/r-base-udh3fS/r-base-3.5.1=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c rcpp_hello_world.cpp -o rcpp_hello_world.o
-: g++ -shared -L/usr/lib/R/lib -Wl,-z,relro -o pajengr.so RcppExports.o rcpp_hello_world.o -L/usr/lib/R/lib -lR
 
 Contents of the REad-and-delete-me file:
 
