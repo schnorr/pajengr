@@ -5,30 +5,20 @@
 
 using namespace Rcpp;
 
-// pajeng_dump
-List pajeng_dump();
-RcppExport SEXP _pajengr_pajeng_dump() {
+// pajeng_read
+List pajeng_read(std::string input);
+RcppExport SEXP _pajengr_pajeng_read(SEXP inputSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(pajeng_dump());
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpp_hello_world
-List rcpp_hello_world();
-RcppExport SEXP _pajengr_rcpp_hello_world() {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(rcpp_hello_world());
+    Rcpp::traits::input_parameter< std::string >::type input(inputSEXP);
+    rcpp_result_gen = Rcpp::wrap(pajeng_read(input));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_pajengr_pajeng_dump", (DL_FUNC) &_pajengr_pajeng_dump, 0},
-    {"_pajengr_rcpp_hello_world", (DL_FUNC) &_pajengr_rcpp_hello_world, 0},
+    {"_pajengr_pajeng_read", (DL_FUNC) &_pajengr_pajeng_read, 1},
     {NULL, NULL, 0}
 };
 
