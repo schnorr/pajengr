@@ -1,2 +1,2 @@
-PKG_CPPFLAGS = -Ipajeng/src/libpaje/
+PKG_CPPFLAGS = -fPIC -Ipajeng/src/libpaje/
 PKG_LIBS = libpaje.a
