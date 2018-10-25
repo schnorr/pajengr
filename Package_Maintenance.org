@@ -40,7 +40,7 @@ Adding Rcpp settings
 Every time some new function is exported, we need to recompile the
 attributes in the following way, so our R API gets updated.
 
-#+begin_src R :results output :session :exports both
+#+begin_src R :results output :exports both
 library(Rcpp);
 unlink("src/RcppExports.cpp")
 compileAttributes(".");
