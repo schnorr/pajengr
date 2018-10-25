@@ -75,14 +75,30 @@ Contents of the REad-and-delete-me file:
 
 And then, test to verify if the installation is working.
 
-#+begin_src R :results output :session :exports both
+#+begin_src R :results output :exports both
 library(pajengr)
-rcpp_hello_world()
+suppressMessages(library(tidyverse))
+pajeng_read("../pajeng/traces/simu-mardi.trace")[[1]] %>% as.tibble -> x
+x %>%
+    group_by(Container) %>% summarize(N=n())
 #+end_src
 
 #+RESULTS:
-: [[1]]
-: [1] "foo" "bar"
-: 
-: [[2]]
-: [1] 0 1
+#+begin_example
+# A tibble: 51 x 2
+   Container     N
+   <fct>     <int>
+ 1 node0       272
+ 2 node1       272
+ 3 node10      272
+ 4 node11      269
+ 5 node12      268
+ 6 node13      266
+ 7 node14      270
+ 8 node15      268
+ 9 node16      268
+10 node17      268
+# ... with 41 more rows
+#+end_example
+
+
