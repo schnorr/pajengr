@@ -42,6 +42,7 @@ attributes in the following way, so our R API gets updated.
 
 #+begin_src R :results output :session :exports both
 library(Rcpp);
+unlink("src/RcppExports.cpp")
 compileAttributes(".");
 #+end_src
 
