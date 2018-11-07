@@ -25,6 +25,16 @@ List _dump (PajeComponent *simulator)
 {
   struct {
     CharacterVector nature;
+    CharacterVector parent;
+    CharacterVector type;
+    DoubleVector start;
+    DoubleVector end;
+    DoubleVector duration;
+    CharacterVector container;
+  } co;
+
+  struct {
+    CharacterVector nature;
     CharacterVector container;
     CharacterVector type;
     DoubleVector start;
@@ -74,6 +84,14 @@ List _dump (PajeComponent *simulator)
   while (!stack.empty()){
     PajeContainer *c = stack.back();
     stack.pop_back ();
+
+    co.nature.push_back("Container");
+    co.parent.push_back(c->container() ? c->container()->name() : "NULL");
+    co.type.push_back(c->type() ? c->type()->name() : "NULL");
+    co.start.push_back(c->startTime());
+    co.end.push_back(c->endTime());
+    co.duration.push_back(c->duration());
+    co.container.push_back(c->name());
 
     //recurse on all types of children
     std::vector<PajeType*> containedTypes;
@@ -129,6 +147,13 @@ List _dump (PajeComponent *simulator)
       }
     }
   }
+  DataFrame coDF = DataFrame::create(Named("Nature") = co.nature,
+				     Named("Parent") = co.parent,
+				     Named("Type") = co.type,
+				     Named("Start") = co.start,
+				     Named("End") = co.end,
+				     Named("Duration") = co.duration,
+				     Named("Container") = co.container);
   DataFrame stDF = DataFrame::create(Named("Nature") = st.nature,
 				     Named("Container") = st.container,
 				     Named("Type") = st.type,
@@ -159,7 +184,8 @@ List _dump (PajeComponent *simulator)
 				     Named("StartContainer") = li.startContainer,
 				     Named("EndContainer") = li.endContainer,
 				     Named("Key") = li.key);
-  return List::create(Named("state") = stDF,
+  return List::create(Named("container") = coDF,
+		      Named("state") = stDF,
 		      Named("variable") = vaDF,
 		      Named("event") = evDF,
 		      Named("link") = liDF);
