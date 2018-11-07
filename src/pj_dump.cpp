@@ -9,19 +9,6 @@ bool yywrap = false;
 
 using namespace Rcpp;
 
-void _add_state_entity (PajeEntity *e);
-void _add_variable_entity (PajeEntity *e);
-void _add_event_entity (PajeEntity *e);
-void _add_link_entity (PajeEntity *e);
-DataFrame _collect_state_dataframe (void);
-DataFrame _collect_variable_dataframe (void);
-DataFrame _collect_event_dataframe (void);
-DataFrame _collect_link_dataframe (void);
-void _collect_state_clear (void);
-void _collect_variable_clear (void);
-void _collect_event_clear (void);
-void _collect_link_clear (void);
-
 //Parameters
 bool flex = false;
 bool strict = true;
