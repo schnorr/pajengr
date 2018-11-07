@@ -110,6 +110,22 @@ data$link %>% as_tibble()
 # ... with 395 more rows, and 1 more variable: Key <fct>
 #+end_example
 
+* Roadmap
+
+Despite being available in the =pj_dump= tool, the features below are
+currently unsupported in the =pajengr= package. They are expected to be
+integrated in this package in the future. Open up an issue if some of
+these is important for you.
+
+- Use the flex parser (=--flex=)
+- Export user fields (=--user-defined=)
+- Dump ends at timestamp END (=--end=END=)
+- Dump starts at timestamp START (instead of 0) (=--start=START=)
+- No imbrication levels (push and pop become sets) (=--no-imbrication=)
+- Support old field names in event definitions (=--no-strict=)
+- Out of core execution (smallest memory footprint) (=--out-of-core=)
+- Ignore incomplete links (not recommended) (=--ignore-incomplete-links=)
+
 * Contact
 
 Use the Issue tab or get in touch by e-mail with:
