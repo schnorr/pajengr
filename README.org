@@ -110,6 +110,245 @@ data$link %>% as_tibble()
 # ... with 395 more rows, and 1 more variable: Key <fct>
 #+end_example
 
+One might want to create a space/time view (without imbrication):
+
+#+begin_src R :results output :session :exports both
+pajeng_read("traces/simgrid.trace")
+#+end_src
+
+#+RESULTS:
+#+begin_example
+$container
+      Nature   Parent  Type Start      End Duration Container
+1  Container     NULL     0     0 5.133855 5.133855         0
+2  Container        0  LINK     0 5.133855 5.133855         3
+3  Container        0  LINK     0 5.133855 5.133855         6
+4  Container        0  LINK     0 5.133855 5.133855  loopback
+5  Container        0  LINK     0 5.133855 5.133855        80
+6  Container        0  LINK     0 5.133855 5.133855        79
+7  Container        0  LINK     0 5.133855 5.133855        78
+8  Container        0  LINK     0 5.133855 5.133855        59
+9  Container        0  LINK     0 5.133855 5.133855        56
+10 Container        0  LINK     0 5.133855 5.133855        54
+11 Container        0  LINK     0 5.133855 5.133855        47
+12 Container        0  LINK     0 5.133855 5.133855        44
+13 Container        0  LINK     0 5.133855 5.133855        17
+14 Container        0  LINK     0 5.133855 5.133855        16
+15 Container        0  LINK     0 5.133855 5.133855        11
+16 Container        0  LINK     0 5.133855 5.133855        10
+17 Container        0  LINK     0 5.133855 5.133855       145
+18 Container        0  LINK     0 5.133855 5.133855         5
+19 Container        0  LINK     0 5.133855 5.133855         0
+20 Container        0  LINK     0 5.133855 5.133855         4
+21 Container        0  LINK     0 5.133855 5.133855         1
+22 Container        0  LINK     0 5.133855 5.133855         8
+23 Container        0  LINK     0 5.133855 5.133855         2
+24 Container        0  LINK     0 5.133855 5.133855         9
+25 Container        0  LINK     0 5.133855 5.133855         7
+26 Container        0  HOST     0 5.133855 5.133855    Boivin
+27 Container        0  HOST     0 5.133855 5.133855 Jacquelin
+28 Container        0  HOST     0 5.133855 5.133855  Bourassa
+29 Container Bourassa ACTOR     0 5.133855 5.133855  worker-6
+30 Container        0  HOST     0 5.133855 5.133855   Ginette
+31 Container  Ginette ACTOR     0 5.133855 5.133855  worker-5
+32 Container        0  HOST     0 5.133855 5.133855    Fafard
+33 Container   Fafard ACTOR     0 5.133855 5.133855  worker-4
+34 Container        0  HOST     0 5.133855 5.133855   Jupiter
+35 Container  Jupiter ACTOR     0 5.133855 5.133855  worker-3
+36 Container        0  HOST     0 5.133855 5.133855  Tremblay
+37 Container Tremblay ACTOR     0 5.133855 5.133855  worker-2
+38 Container Tremblay ACTOR     0 5.133855 5.133855  master-1
+
+$state
+   Nature Container        Type    Start      End Duration Imbrication   Value
+1   State  worker-6 ACTOR_STATE 0.000000 5.133855 5.133855           0 receive
+2   State  worker-6 ACTOR_STATE 0.586168 1.617266 1.031098           1 execute
+3   State  worker-6 ACTOR_STATE 1.617266 5.133855 3.516589           1 receive
+4   State  worker-6 ACTOR_STATE 1.749885 2.780982 1.031097           2 execute
+5   State  worker-6 ACTOR_STATE 2.780982 5.133855 2.352873           2 receive
+6   State  worker-6 ACTOR_STATE 2.913601 3.944699 1.031098           3 execute
+7   State  worker-6 ACTOR_STATE 3.944699 5.133855 1.189156           3 receive
+8   State  worker-6 ACTOR_STATE 4.077318 5.108416 1.031098           4 execute
+9   State  worker-6 ACTOR_STATE 5.108416 5.133855 0.025439           4 receive
+10  State  worker-5 ACTOR_STATE 0.000000 5.133855 5.133855           0 receive
+11  State  worker-5 ACTOR_STATE 0.453549 1.484647 1.031098           1 execute
+12  State  worker-5 ACTOR_STATE 1.484647 5.133855 3.649208           1 receive
+13  State  worker-5 ACTOR_STATE 1.608379 2.639477 1.031098           2 execute
+14  State  worker-5 ACTOR_STATE 2.639477 5.133855 2.494378           2 receive
+15  State  worker-5 ACTOR_STATE 2.763209 3.794306 1.031097           3 execute
+16  State  worker-5 ACTOR_STATE 3.794306 5.133855 1.339549           3 receive
+17  State  worker-5 ACTOR_STATE 3.918038 4.949136 1.031098           4 execute
+18  State  worker-5 ACTOR_STATE 4.949136 5.133855 0.184719           4 receive
+19  State  worker-4 ACTOR_STATE 0.000000 5.133855 5.133855           0 receive
+20  State  worker-4 ACTOR_STATE 0.329817 0.985159 0.655342           1 execute
+21  State  worker-4 ACTOR_STATE 0.985159 5.133855 4.148696           1 receive
+22  State  worker-4 ACTOR_STATE 1.154314 1.809656 0.655342           2 execute
+23  State  worker-4 ACTOR_STATE 1.809656 5.133855 3.324199           2 receive
+24  State  worker-4 ACTOR_STATE 2.079701 2.735044 0.655343           3 execute
+25  State  worker-4 ACTOR_STATE 2.735044 5.133855 2.398811           3 receive
+26  State  worker-4 ACTOR_STATE 3.243418 3.898760 0.655342           4 execute
+27  State  worker-4 ACTOR_STATE 3.898760 5.133855 1.235095           4 receive
+28  State  worker-3 ACTOR_STATE 0.000000 5.133855 5.133855           0 receive
+29  State  worker-3 ACTOR_STATE 0.171420 0.826762 0.655342           1 execute
+30  State  worker-3 ACTOR_STATE 0.826762 5.133855 4.307093           1 receive
+31  State  worker-3 ACTOR_STATE 0.995917 1.651259 0.655342           2 execute
+32  State  worker-3 ACTOR_STATE 1.651259 5.133855 3.482596           2 receive
+33  State  worker-3 ACTOR_STATE 1.921304 2.576647 0.655343           3 execute
+34  State  worker-3 ACTOR_STATE 2.576647 5.133855 2.557208           3 receive
+35  State  worker-3 ACTOR_STATE 3.085021 3.740364 0.655343           4 execute
+36  State  worker-3 ACTOR_STATE 3.740364 5.133855 1.393491           4 receive
+37  State  worker-2 ACTOR_STATE 0.000000 5.133855 5.133855           0 receive
+38  State  worker-2 ACTOR_STATE 0.002265 0.511975 0.509710           1 execute
+39  State  worker-2 ACTOR_STATE 0.511975 5.133855 4.621880           1 receive
+40  State  worker-2 ACTOR_STATE 0.588433 1.098143 0.509710           2 execute
+41  State  worker-2 ACTOR_STATE 1.098143 5.133855 4.035712           2 receive
+42  State  worker-2 ACTOR_STATE 1.752150 2.261860 0.509710           3 execute
+43  State  worker-2 ACTOR_STATE 2.261860 5.133855 2.871995           3 receive
+44  State  worker-2 ACTOR_STATE 2.915867 3.425577 0.509710           4 execute
+45  State  worker-2 ACTOR_STATE 3.425577 5.133855 1.708278           4 receive
+46  State  master-1 ACTOR_STATE 0.000000 5.133855 5.133855           0    send
+47  State  master-1 ACTOR_STATE 0.002265 5.133855 5.131590           1    send
+48  State  master-1 ACTOR_STATE 0.171420 5.133855 4.962435           2    send
+49  State  master-1 ACTOR_STATE 0.329817 5.133855 4.804038           3    send
+50  State  master-1 ACTOR_STATE 0.453549 5.133855 4.680306           4    send
+51  State  master-1 ACTOR_STATE 0.586168 5.133855 4.547687           5    send
+52  State  master-1 ACTOR_STATE 0.588433 5.133855 4.545422           6    send
+53  State  master-1 ACTOR_STATE 0.995917 5.133855 4.137938           7    send
+54  State  master-1 ACTOR_STATE 1.154314 5.133855 3.979541           8    send
+55  State  master-1 ACTOR_STATE 1.608379 5.133855 3.525476           9    send
+56  State  master-1 ACTOR_STATE 1.749885 5.133855 3.383970          10    send
+57  State  master-1 ACTOR_STATE 1.752150 5.133855 3.381705          11    send
+58  State  master-1 ACTOR_STATE 1.921304 5.133855 3.212551          12    send
+59  State  master-1 ACTOR_STATE 2.079701 5.133855 3.054154          13    send
+60  State  master-1 ACTOR_STATE 2.763209 5.133855 2.370646          14    send
+61  State  master-1 ACTOR_STATE 2.913601 5.133855 2.220254          15    send
+62  State  master-1 ACTOR_STATE 2.915867 5.133855 2.217988          16    send
+63  State  master-1 ACTOR_STATE 3.085021 5.133855 2.048834          17    send
+64  State  master-1 ACTOR_STATE 3.243418 5.133855 1.890437          18    send
+65  State  master-1 ACTOR_STATE 3.918038 5.133855 1.215817          19    send
+66  State  master-1 ACTOR_STATE 4.077318 5.133855 1.056537          20    send
+67  State  master-1 ACTOR_STATE 4.077513 5.133855 1.056342          21    send
+68  State  master-1 ACTOR_STATE 4.096528 5.133855 1.037327          22    send
+69  State  master-1 ACTOR_STATE 4.122236 5.133855 1.011619          23    send
+70  State  master-1 ACTOR_STATE 4.965689 5.133855 0.168166          24    send
+
+$variable
+[1] Nature    Container Type      Start     End       Duration  Value    
+<0 rows> (or 0-length row.names)
+
+$event
+[1] Nature    Container Type      Start     Value    
+<0 rows> (or 0-length row.names)
+
+$link
+   Nature Container          Type Start End Duration    Value StartContainer
+1   State         0 0-LINK2-LINK2     0   0        0 topology              2
+2   State         0 0-LINK2-LINK2     0   0        0 topology              3
+3   State         0 0-LINK2-LINK2     0   0        0 topology              0
+4   State         0 0-LINK2-LINK2     0   0        0 topology             16
+5   State         0 0-LINK2-LINK2     0   0        0 topology              6
+6   State         0 0-LINK2-LINK2     0   0        0 topology             10
+7   State         0 0-LINK2-LINK2     0   0        0 topology              6
+8   State         0 0-LINK2-LINK2     0   0        0 topology             59
+9   State         0 0-LINK2-LINK2     0   0        0 topology              0
+10  State         0 0-LINK2-LINK2     0   0        0 topology             16
+11  State         0 0-LINK2-LINK2     0   0        0 topology              3
+12  State         0 0-LINK2-LINK2     0   0        0 topology              4
+13  State         0 0-LINK2-LINK2     0   0        0 topology             11
+14  State         0 0-LINK2-LINK2     0   0        0 topology             44
+15  State         0 0-LINK2-LINK2     0   0        0 topology              9
+16  State         0 0-LINK2-LINK2     0   0        0 topology              2
+17  State         0 0-LINK2-LINK2     0   0        0 topology              3
+18  State         0 0-LINK2-LINK2     0   0        0 topology             17
+19  State         0 0-LINK2-LINK2     0   0        0 topology              2
+20  State         0 0-LINK2-LINK2     0   0        0 topology             54
+21  State         0 0-LINK2-LINK2     0   0        0 topology             56
+22  State         0 0-LINK2-LINK2     0   0        0 topology              1
+23  State         0 0-LINK2-LINK2     0   0        0 topology              8
+24  State         0 0-LINK2-LINK2     0   0        0 topology              9
+25  State         0 0-LINK2-LINK2     0   0        0 topology              6
+26  State         0 0-LINK2-LINK2     0   0        0 topology             80
+27  State         0 0-LINK2-LINK2     0   0        0 topology             78
+28  State         0 0-LINK2-LINK2     0   0        0 topology              1
+29  State         0 0-LINK2-LINK2     0   0        0 topology             79
+30  State         0 0-HOST1-LINK2     0   0        0 topology       Bourassa
+31  State         0 0-HOST1-LINK2     0   0        0 topology        Ginette
+32  State         0 0-HOST1-LINK2     0   0        0 topology        Jupiter
+33  State         0 0-HOST1-LINK2     0   0        0 topology       Tremblay
+34  State         0 0-HOST1-LINK2     0   0        0 topology       Bourassa
+35  State         0 0-HOST1-LINK2     0   0        0 topology        Ginette
+36  State         0 0-HOST1-LINK2     0   0        0 topology        Jupiter
+37  State         0 0-HOST1-LINK2     0   0        0 topology       Tremblay
+38  State         0 0-HOST1-LINK2     0   0        0 topology         Fafard
+39  State         0 0-HOST1-LINK2     0   0        0 topology         Fafard
+40  State         0 0-HOST1-LINK2     0   0        0 topology       Tremblay
+41  State         0 0-LINK2-HOST1     0   0        0 topology             47
+42  State         0 0-LINK2-HOST1     0   0        0 topology              7
+43  State         0 0-LINK2-HOST1     0   0        0 topology              8
+44  State         0 0-LINK2-HOST1     0   0        0 topology              5
+45  State         0 0-LINK2-HOST1     0   0        0 topology            145
+46  State         0 0-LINK2-HOST1     0   0        0 topology              9
+   EndContainer    Key
+1             0 No Key
+2             0 No Key
+3             1 No Key
+4            10 No Key
+5            10 No Key
+6            11 No Key
+7            11 No Key
+8           145 No Key
+9            16 No Key
+10           17 No Key
+11            2 No Key
+12            3 No Key
+13           44 No Key
+14           47 No Key
+15            4 No Key
+16            5 No Key
+17            5 No Key
+18           54 No Key
+19           54 No Key
+20           56 No Key
+21           59 No Key
+22            6 No Key
+23            6 No Key
+24            6 No Key
+25            7 No Key
+26           78 No Key
+27           79 No Key
+28            8 No Key
+29            9 No Key
+30          145 No Key
+31          145 No Key
+32          145 No Key
+33            3 No Key
+34           47 No Key
+35           47 No Key
+36           47 No Key
+37            4 No Key
+38           78 No Key
+39           80 No Key
+40            9 No Key
+41       Boivin No Key
+42     Bourassa No Key
+43       Fafard No Key
+44      Ginette No Key
+45    Jacquelin No Key
+46      Jupiter No Key
+#+end_example
+
+#+begin_src R :results output graphics :file img/space-time-plot.png :exports both :width 900 :height 220 :session
+library(pajengr)
+suppressMessages(library(tidyverse))
+pajeng_read("traces/simgrid.trace")$state %>%
+     ggplot(aes(x=Start, xend=End, y=factor(Container),yend=factor(Container), color=Value)) +
+         theme_bw(base_size=18) +
+         geom_segment(size=10)
+#+end_src
+
+#+RESULTS:
+[[file:img/space-time-plot.png]]
+
 * Roadmap
 
 Despite being available in the =pj_dump= tool, the features below are
