@@ -6,8 +6,7 @@ The =pajengr= package has been created to facilite the data manipulation
 of trace files in the [[https://raw.githubusercontent.com/schnorr/pajeng/master/doc/lang-paje/lang-paje.pdf][Paje Trace File Format]]. You provide a paje trace
 file, and you get multiple tibbles (aka data frames) with information
 about states, links, variables, events, and containers. These tables
-have information that is very similar to the ones provided by
-[[https://github.com/schnorr/pajeng/wiki/pj_dump][the =pj_dump= tool]].
+have information that is very similar to the ones provided by [[https://github.com/schnorr/pajeng/wiki/pj_dump][the =pj_dump= tool]].
 
 * Installation
 
