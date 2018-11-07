@@ -61,6 +61,27 @@ R CMD INSTALL .
 #+end_src
 
 #+RESULTS:
+#+begin_example
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/schnorr/dev/pajengr/src/pajeng.build
+/usr/bin/cmake -H/home/schnorr/dev/pajengr/src/pajeng -B/home/schnorr/dev/pajengr/src/pajeng.build --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /home/schnorr/dev/pajengr/src/pajeng.build/CMakeFiles /home/schnorr/dev/pajengr/src/pajeng.build/CMakeFiles/progress.marks
+make -f CMakeFiles/Makefile2 all
+make[1]: Entering directory '/home/schnorr/dev/pajengr/src/pajeng.build'
+make -f src/libpaje/CMakeFiles/paje_library_static.dir/build.make src/libpaje/CMakeFiles/paje_library_static.dir/depend
+make[2]: Entering directory '/home/schnorr/dev/pajengr/src/pajeng.build'
+cd /home/schnorr/dev/pajengr/src/pajeng.build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/schnorr/dev/pajengr/src/pajeng /home/schnorr/dev/pajengr/src/pajeng/src/libpaje /home/schnorr/dev/pajengr/src/pajeng.build /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje/CMakeFiles/paje_library_static.dir/DependInfo.cmake --color=
+make[2]: Leaving directory '/home/schnorr/dev/pajengr/src/pajeng.build'
+make -f src/libpaje/CMakeFiles/paje_library_static.dir/build.make src/libpaje/CMakeFiles/paje_library_static.dir/build
+make[2]: Entering directory '/home/schnorr/dev/pajengr/src/pajeng.build'
+make[2]: Nothing to be done for 'src/libpaje/CMakeFiles/paje_library_static.dir/build'.
+make[2]: Leaving directory '/home/schnorr/dev/pajengr/src/pajeng.build'
+[100%] Built target paje_library_static
+make[1]: Leaving directory '/home/schnorr/dev/pajengr/src/pajeng.build'
+/usr/bin/cmake -E cmake_progress_start /home/schnorr/dev/pajengr/src/pajeng.build/CMakeFiles 0
+make: Nothing to be done for 'all'.
+#+end_example
 
 Contents of the REad-and-delete-me file:
 
@@ -75,55 +96,80 @@ Contents of the REad-and-delete-me file:
 
 And then, test to verify if the installation is working.
 
-#+begin_src R :results output :session :exports both
+#+begin_src R :results output :exports both :session
 library(pajengr)
 suppressMessages(library(tidyverse))
-library(profvis)
 pajeng_read("../pajeng/traces/simu-mardi.trace") -> x;
-#+end_src
-
-#+RESULTS:
-
-#+begin_src R :results output :session :exports both
-str(x)
+lapply(x, object.size)
+x$state %>% as_tibble()
+x$variable %>% as_tibble()
+x$event %>% as_tibble()
+x$link %>% as_tibble()
 #+end_src
 
 #+RESULTS:
 #+begin_example
-List of 4
- $ :'data.frame':	13620 obs. of  8 variables:
-  ..$ Nature     : Factor w/ 1 level "State": 1 1 1 1 1 1 1 1 1 1 ...
-  ..$ Container  : Factor w/ 51 levels "node0","node1",..: 27 27 27 27 27 27 27 27 27 27 ...
-  ..$ Type       : Factor w/ 2 levels "PM","SERVICE": 1 1 1 1 1 1 1 1 1 1 ...
-  ..$ Start      : num [1:13620] 100 222 256 268 291 303 425 503 515 538 ...
-  ..$ End        : num [1:13620] 222 256 268 291 303 425 503 515 538 554 ...
-  ..$ Duration   : num [1:13620] 122 34 12 23 12 122 78 12 23 16 ...
-  ..$ Imbrication: int [1:13620] 0 0 0 0 0 0 0 0 0 0 ...
-  ..$ Value      : Factor w/ 8 levels "booked","compute",..: 4 4 4 4 4 4 4 4 4 4 ...
- $ :'data.frame':	507 obs. of  7 variables:
-  ..$ Nature   : Factor w/ 1 level "Variable": 1 1 1 1 1 1 1 1 1 1 ...
-  ..$ Container: Factor w/ 304 levels "my_cluster_1_backbone",..: 57 57 54 54 55 55 52 52 53 53 ...
-  ..$ Type     : Factor w/ 3 levels "bandwidth","latency",..: 1 2 1 2 1 2 1 2 1 2 ...
-  ..$ Start    : num [1:507] 0 0 0 0 0 0 0 0 0 0 ...
-  ..$ End      : num [1:507] 1205 1205 1205 1205 1205 ...
-  ..$ Duration : num [1:507] 1205 1205 1205 1205 1205 ...
-  ..$ Value    : num [1:507] 1.25e+08 5.00e-05 1.25e+08 5.00e-05 1.25e+08 ...
- $ :'data.frame':	0 obs. of  5 variables:
-  ..$ Nature   : Factor w/ 0 levels: 
-  ..$ Container: Factor w/ 0 levels: 
-  ..$ Type     : Factor w/ 0 levels: 
-  ..$ Start    : num(0) 
-  ..$ Value    : Factor w/ 0 levels: 
- $ :'data.frame':	405 obs. of  10 variables:
-  ..$ Nature        : Factor w/ 1 level "State": 1 1 1 1 1 1 1 1 1 1 ...
-  ..$ Container     : Factor w/ 1 level "my_cluster_1": 1 1 1 1 1 1 1 1 1 1 ...
-  ..$ Type          : Factor w/ 4 levels "L1-HOST2-LINK4",..: 2 2 2 2 2 2 2 2 2 2 ...
-  ..$ Start         : num [1:405] 0 0 0 0 0 0 0 0 0 0 ...
-  ..$ End           : num [1:405] 0 0 0 0 0 0 0 0 0 0 ...
-  ..$ Duration      : num [1:405] 0 0 0 0 0 0 0 0 0 0 ...
-  ..$ Value         : Factor w/ 1 level "G": 1 1 1 1 1 1 1 1 1 1 ...
-  ..$ StartContainer: Factor w/ 304 levels "my_cluster_1_backbone",..: 32 34 36 38 40 42 44 46 48 52 ...
-  ..$ EndContainer  : Factor w/ 305 levels "my_cluster_1_backbone",..: 219 220 221 222 223 224 225 226 227 229 ...
-  ..$ Key           : Factor w/ 1 level "No Key": 1 1 1 1 1 1 1 1 1 1 ...
+$state
+606408 bytes
+
+$variable
+49560 bytes
+
+$event
+2760 bytes
+
+$link
+75024 bytes
+
+# A tibble: 13,620 x 8
+   Nature Container Type  Start   End Duration Imbrication Value 
+   <fct>  <fct>     <fct> <dbl> <dbl>    <dbl>       <int> <fct> 
+ 1 State  node32    PM      100   222      122           0 normal
+ 2 State  node32    PM      222   256       34           0 normal
+ 3 State  node32    PM      256   268       12           0 normal
+ 4 State  node32    PM      268   291       23           0 normal
+ 5 State  node32    PM      291   303       12           0 normal
+ 6 State  node32    PM      303   425      122           0 normal
+ 7 State  node32    PM      425   503       78           0 normal
+ 8 State  node32    PM      503   515       12           0 normal
+ 9 State  node32    PM      515   538       23           0 normal
+10 State  node32    PM      538   554       16           0 normal
+# ... with 13,610 more rows
+# A tibble: 507 x 7
+   Nature   Container                 Type      Start   End Duration   Value
+   <fct>    <fct>                     <fct>     <dbl> <dbl>    <dbl>   <dbl>
+ 1 Variable my_cluster_1_link_32_UP   bandwidth     0  1205     1205 1.25e+8
+ 2 Variable my_cluster_1_link_32_UP   latency       0  1205     1205 5.00e-5
+ 3 Variable my_cluster_1_link_31_DOWN bandwidth     0  1205     1205 1.25e+8
+ 4 Variable my_cluster_1_link_31_DOWN latency       0  1205     1205 5.00e-5
+ 5 Variable my_cluster_1_link_31_UP   bandwidth     0  1205     1205 1.25e+8
+ 6 Variable my_cluster_1_link_31_UP   latency       0  1205     1205 5.00e-5
+ 7 Variable my_cluster_1_link_30_DOWN bandwidth     0  1205     1205 1.25e+8
+ 8 Variable my_cluster_1_link_30_DOWN latency       0  1205     1205 5.00e-5
+ 9 Variable my_cluster_1_link_30_UP   bandwidth     0  1205     1205 1.25e+8
+10 Variable my_cluster_1_link_30_UP   latency       0  1205     1205 5.00e-5
+# ... with 497 more rows
+# A tibble: 0 x 5
+# ... with 5 variables: Nature <fct>, Container <fct>, Type <fct>, Start <dbl>,
+#   Value <fct>
+# A tibble: 405 x 10
+   Nature Container Type  Start   End Duration Value StartContainer EndContainer
+   <fct>  <fct>     <fct> <dbl> <dbl>    <dbl> <fct> <fct>          <fct>       
+ 1 State  my_clust… L1-L…     0     0        0 G     my_cluster_1_… node21      
+ 2 State  my_clust… L1-L…     0     0        0 G     my_cluster_1_… node22      
+ 3 State  my_clust… L1-L…     0     0        0 G     my_cluster_1_… node23      
+ 4 State  my_clust… L1-L…     0     0        0 G     my_cluster_1_… node24      
+ 5 State  my_clust… L1-L…     0     0        0 G     my_cluster_1_… node25      
+ 6 State  my_clust… L1-L…     0     0        0 G     my_cluster_1_… node26      
+ 7 State  my_clust… L1-L…     0     0        0 G     my_cluster_1_… node27      
+ 8 State  my_clust… L1-L…     0     0        0 G     my_cluster_1_… node28      
+ 9 State  my_clust… L1-L…     0     0        0 G     my_cluster_1_… node29      
+10 State  my_clust… L1-L…     0     0        0 G     my_cluster_1_… node30      
+# ... with 395 more rows, and 1 more variable: Key <fct>
 #+end_example
+
+
+
+
+
 
