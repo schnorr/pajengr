@@ -33,7 +33,7 @@ As of now, the =pajeng_read= is the only exported function of the
 =pajengr= package. This function returns a list with five named
 elements: "container", "state", "variable", "event", and "link". Each
 element is a =data.frame= with the same columns as the output given by
-=[[https://github.com/schnorr/pajeng/wiki/pj_dump][pj_dump]]=. The code snippet below shows the basic usage of the
+[[https://github.com/schnorr/pajeng/wiki/pj_dump][the =pj_dump= tool]]. The code snippet below shows the basic usage of the
 =pajeng_read= function, which takes the name of a file in the Paje file
 format.
 
