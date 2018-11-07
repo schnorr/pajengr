@@ -93,9 +93,6 @@ List pajeng_read (std::string input) {
 				   entityDump,
 				   quiet);
 
-    CharacterVector x = CharacterVector::create( "foo", "bar" )  ;
-    NumericVector y   = NumericVector::create( 0.0, 1.0 ) ;
-
     List z = _dump(unity);
     delete unity;
     return z;
