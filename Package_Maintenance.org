@@ -191,7 +191,20 @@ $link
 # ... with 395 more rows, and 1 more variable: Key <fct>
 #+end_example
 
+Test exception handling
 
+#+begin_src R :results output :exports both :session
+library(pajengr)
+suppressMessages(library(tidyverse))
+pajeng_read("./traces/starpu.buggy.trace") -> x;
+str(x)
+#+end_src
+
+#+RESULTS:
+: 
+: PajeContainerException: Unknown container 'mm0' in (Line: 377, Fields: '5, Contents: '6 0.000000000 mm0 use 0.000000')
+: 
+:  list()
 
 
 
