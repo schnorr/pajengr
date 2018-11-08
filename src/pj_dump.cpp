@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <exception>
 #include "PajeUnity.h"
+#include "PajeException.h"
 bool yywrap = false;
 
 using namespace Rcpp;
@@ -193,21 +194,25 @@ List _dump (PajeComponent *simulator)
 
 // [[Rcpp::export]]
 List pajeng_read (std::string input) {
-    
-  PajeUnity *unity = new PajeUnity(flex,
-				   strict,
-				   input,
-				   stopat,
-				   ignoreIncompleteLinks,
-				   probabilistic,
-				   noImbrication,
-				   userDefined,
-				   outofcore,
-				   entityDump,
-				   quiet);
-
-    List z = _dump(unity);
-    delete unity;
-    return z;
+  PajeUnity *unity;
+  try {
+    unity = new PajeUnity(flex,
+			  strict,
+			  input,
+			  stopat,
+			  ignoreIncompleteLinks,
+			  probabilistic,
+			  noImbrication,
+			  userDefined,
+			  outofcore,
+			  entityDump,
+			  quiet);
+  }catch(PajeException &ex){
+    ex.report();
+    return List::create();
+  }
+  List z = _dump(unity);
+  delete unity;
+  return z;
 }
 
