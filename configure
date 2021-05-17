@@ -4,6 +4,7 @@ cd $BUILD_DIR
 cmake -DSTATIC_LINKING=ON \
       -DPAJE_DOC=OFF \
       -DPAJE_TOOLS=OFF \
+      -DPAJE_USE_FMT=OFF \
       -DCMAKE_INSTALL_PREFIX=../install/ \
       -D CMAKE_CXX_FLAGS=-fPIC \
       ../pajeng/
