@@ -62,25 +62,98 @@ R CMD INSTALL .
 
 #+RESULTS:
 #+begin_example
+-- The C compiler identification is GNU 10.2.1
+-- The CXX compiler identification is GNU 10.2.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found BISON: /usr/bin/bison (found version "3.7.5") 
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/schnorr/dev/pajengr/src/pajeng.build
-/usr/bin/cmake -H/home/schnorr/dev/pajengr/src/pajeng -B/home/schnorr/dev/pajengr/src/pajeng.build --check-build-system CMakeFiles/Makefile.cmake 0
-/usr/bin/cmake -E cmake_progress_start /home/schnorr/dev/pajengr/src/pajeng.build/CMakeFiles /home/schnorr/dev/pajengr/src/pajeng.build/CMakeFiles/progress.marks
-make -f CMakeFiles/Makefile2 all
+/usr/bin/cmake -S/home/schnorr/dev/pajengr/src/pajeng -B/home/schnorr/dev/pajengr/src/pajeng.build --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /home/schnorr/dev/pajengr/src/pajeng.build/CMakeFiles /home/schnorr/dev/pajengr/src/pajeng.build//CMakeFiles/progress.marks
+make  -f CMakeFiles/Makefile2 all
 make[1]: Entering directory '/home/schnorr/dev/pajengr/src/pajeng.build'
-make -f src/libpaje/CMakeFiles/paje_library_static.dir/build.make src/libpaje/CMakeFiles/paje_library_static.dir/depend
+make  -f src/libpaje/CMakeFiles/paje_library_static.dir/build.make src/libpaje/CMakeFiles/paje_library_static.dir/depend
 make[2]: Entering directory '/home/schnorr/dev/pajengr/src/pajeng.build'
+[  3%] [BISON][parser] Building parser with bison 3.7.5
+cd /home/schnorr/dev/pajengr/src/pajeng/src/libpaje && /usr/bin/bison -d -o /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje/parser.cc parser.y
+[  7%] [FLEX][scanner] Building scanner with flex 2.6.4
+cd /home/schnorr/dev/pajengr/src/pajeng/src/libpaje && /usr/bin/flex -F -o/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje/lexer.cc scanner.l
 cd /home/schnorr/dev/pajengr/src/pajeng.build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/schnorr/dev/pajengr/src/pajeng /home/schnorr/dev/pajengr/src/pajeng/src/libpaje /home/schnorr/dev/pajengr/src/pajeng.build /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje/CMakeFiles/paje_library_static.dir/DependInfo.cmake --color=
+Dependee "/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje/CMakeFiles/paje_library_static.dir/depend.internal".
+Scanning dependencies of target paje_library_static
 make[2]: Leaving directory '/home/schnorr/dev/pajengr/src/pajeng.build'
-make -f src/libpaje/CMakeFiles/paje_library_static.dir/build.make src/libpaje/CMakeFiles/paje_library_static.dir/build
+make  -f src/libpaje/CMakeFiles/paje_library_static.dir/build.make src/libpaje/CMakeFiles/paje_library_static.dir/build
 make[2]: Entering directory '/home/schnorr/dev/pajengr/src/pajeng.build'
-make[2]: Nothing to be done for 'src/libpaje/CMakeFiles/paje_library_static.dir/build'.
+[ 11%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeEventDefinition.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeEventDefinition.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeEventDefinition.cc
+[ 15%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeTraceEvent.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeTraceEvent.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeTraceEvent.cc
+[ 19%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeEvent.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeEvent.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeEvent.cc
+[ 23%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeData.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeData.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeData.cc
+[ 26%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeFileReader.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeFileReader.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeFileReader.cc
+[ 30%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeObject.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeObject.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeObject.cc
+[ 34%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeEventDecoder.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeEventDecoder.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeEventDecoder.cc
+[ 38%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeSimulator.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeSimulator.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeSimulator.cc
+[ 42%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeProbabilisticSimulator.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeProbabilisticSimulator.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeProbabilisticSimulator.cc
+[ 46%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeSimulator+Queries.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeSimulator+Queries.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeSimulator+Queries.cc
+[ 50%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeSimulator+Commands.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeSimulator+Commands.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeSimulator+Commands.cc
+[ 53%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeComponent.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeComponent.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeComponent.cc
+[ 57%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeType.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeType.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeType.cc
+[ 61%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeValue.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeValue.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeValue.cc
+[ 65%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeEntity.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeEntity.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeEntity.cc
+[ 69%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeContainer.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeContainer.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeContainer.cc
+[ 73%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeColor.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeColor.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeColor.cc
+[ 76%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeException.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeException.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeException.cc
+[ 80%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeDefinitions.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeDefinitions.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeDefinitions.cc
+[ 84%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/lexer.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/lexer.cc.o -c /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje/lexer.cc
+[ 88%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/parser.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/parser.cc.o -c /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje/parser.cc
+[ 92%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeFlexReader.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeFlexReader.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeFlexReader.cc
+[ 96%] Building CXX object src/libpaje/CMakeFiles/paje_library_static.dir/PajeUnity.cc.o
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/c++  -I/home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje -I/home/schnorr/dev/pajengr/src/pajeng/src/libpaje -fPIC -std=c++11 -O3 -DNDEBUG -o CMakeFiles/paje_library_static.dir/PajeUnity.cc.o -c /home/schnorr/dev/pajengr/src/pajeng/src/libpaje/PajeUnity.cc
+[100%] Linking CXX static library libpaje.a
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/cmake -P CMakeFiles/paje_library_static.dir/cmake_clean_target.cmake
+cd /home/schnorr/dev/pajengr/src/pajeng.build/src/libpaje && /usr/bin/cmake -E cmake_link_script CMakeFiles/paje_library_static.dir/link.txt --verbose=1
+/usr/bin/ar qc libpaje.a CMakeFiles/paje_library_static.dir/PajeEventDefinition.cc.o CMakeFiles/paje_library_static.dir/PajeTraceEvent.cc.o CMakeFiles/paje_library_static.dir/PajeEvent.cc.o CMakeFiles/paje_library_static.dir/PajeData.cc.o CMakeFiles/paje_library_static.dir/PajeFileReader.cc.o CMakeFiles/paje_library_static.dir/PajeObject.cc.o CMakeFiles/paje_library_static.dir/PajeEventDecoder.cc.o CMakeFiles/paje_library_static.dir/PajeSimulator.cc.o CMakeFiles/paje_library_static.dir/PajeProbabilisticSimulator.cc.o CMakeFiles/paje_library_static.dir/PajeSimulator+Queries.cc.o CMakeFiles/paje_library_static.dir/PajeSimulator+Commands.cc.o CMakeFiles/paje_library_static.dir/PajeComponent.cc.o CMakeFiles/paje_library_static.dir/PajeType.cc.o CMakeFiles/paje_library_static.dir/PajeValue.cc.o CMakeFiles/paje_library_static.dir/PajeEntity.cc.o CMakeFiles/paje_library_static.dir/PajeContainer.cc.o CMakeFiles/paje_library_static.dir/PajeColor.cc.o CMakeFiles/paje_library_static.dir/PajeException.cc.o CMakeFiles/paje_library_static.dir/PajeDefinitions.cc.o CMakeFiles/paje_library_static.dir/lexer.cc.o CMakeFiles/paje_library_static.dir/parser.cc.o CMakeFiles/paje_library_static.dir/PajeFlexReader.cc.o CMakeFiles/paje_library_static.dir/PajeUnity.cc.o
+/usr/bin/ranlib libpaje.a
 make[2]: Leaving directory '/home/schnorr/dev/pajengr/src/pajeng.build'
 [100%] Built target paje_library_static
 make[1]: Leaving directory '/home/schnorr/dev/pajengr/src/pajeng.build'
 /usr/bin/cmake -E cmake_progress_start /home/schnorr/dev/pajengr/src/pajeng.build/CMakeFiles 0
-make: Nothing to be done for 'all'.
+g++ -std=gnu++11 -I"/usr/share/R/include" -DNDEBUG -fPIC -Ipajeng/src/libpaje/ -I'/home/schnorr/R/x86_64-pc-linux-gnu-library/4.0/Rcpp/include'    -fpic  -g -O2 -ffile-prefix-map=/build/r-base-XqSJAD/r-base-4.0.4=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c pj_events.cpp -o pj_events.o
+g++ -std=gnu++11 -I"/usr/share/R/include" -DNDEBUG -fPIC -Ipajeng/src/libpaje/ -I'/home/schnorr/R/x86_64-pc-linux-gnu-library/4.0/Rcpp/include'    -fpic  -g -O2 -ffile-prefix-map=/build/r-base-XqSJAD/r-base-4.0.4=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c pj_links.cpp -o pj_links.o
+g++ -std=gnu++11 -I"/usr/share/R/include" -DNDEBUG -fPIC -Ipajeng/src/libpaje/ -I'/home/schnorr/R/x86_64-pc-linux-gnu-library/4.0/Rcpp/include'    -fpic  -g -O2 -ffile-prefix-map=/build/r-base-XqSJAD/r-base-4.0.4=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c pj_states.cpp -o pj_states.o
+g++ -std=gnu++11 -I"/usr/share/R/include" -DNDEBUG -fPIC -Ipajeng/src/libpaje/ -I'/home/schnorr/R/x86_64-pc-linux-gnu-library/4.0/Rcpp/include'    -fpic  -g -O2 -ffile-prefix-map=/build/r-base-XqSJAD/r-base-4.0.4=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c pj_variables.cpp -o pj_variables.o
+g++ -std=gnu++11 -shared -L/usr/lib/R/lib -Wl,-z,relro -o pajengr.so RcppExports.o pj_dump.o pj_events.o pj_links.o pj_states.o pj_variables.o libpaje.a -L/usr/lib/R/lib -lR
 #+end_example
 
 Contents of the REad-and-delete-me file:
